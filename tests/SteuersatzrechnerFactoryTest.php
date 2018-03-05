@@ -31,8 +31,14 @@ final class SteuersatzrechnerFactoryTest extends TestCase
         $this->assertInstanceOf(Steuersatzrechner::class, SteuersatzrechnerFactory::fuerJahr(2018));
     }
 
-    public function test2019()
+    public function testAktuellsteFuerJahrVorhanden()
     {
         $this->assertInstanceOf(Steuersatzrechner::class, SteuersatzrechnerFactory::aktuellsterFuerJahr(2019));
+    }
+
+    public function testAktuellsteFuerJahrNichtVorhanden()
+    {
+        $this->expectException(Exception::class);
+        $this->assertInstanceOf(Steuersatzrechner::class, SteuersatzrechnerFactory::aktuellsterFuerJahr(2017));
     }
 }
