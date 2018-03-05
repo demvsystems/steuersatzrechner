@@ -1,0 +1,12 @@
+language: php
+php:
+  - 7.1
+  - 7.2
+  - nightly
+before_script:
+  - composer self-update
+  - composer update
+script:
+  - composer coverage
+after_success:
+- bash <(curl -s https://codecov.io/bash)
