@@ -1,5 +1,8 @@
 # Steuersatzrechner
 
+[![codecov](https://codecov.io/gh/demvsystems/steuersatzrechner/branch/master/graph/badge.svg)](https://codecov.io/gh/demvsystems/steuersatzrechner)
+
+
 Eine verinfachte Ermittlung des Steuersatzen auf Basis des Einkommens
 
 ## Beispiele
