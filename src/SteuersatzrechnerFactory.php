@@ -49,7 +49,7 @@ final class SteuersatzrechnerFactory
      * @return Steuersatzrechner
      * @throws Exception
      */
-    public static function aktuellsterFuerJahr(int $jahr)
+    public static function aktuellsterFuerJahr(int $jahr): Steuersatzrechner
     {
         ensure((string) $jahr)->match('/^[0-9]{4}$/');
         $input = $jahr;
