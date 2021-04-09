@@ -3,8 +3,8 @@
 namespace Demv\Steuersatzrechner;
 
 use Demv\Steuersatzrechner\Steuersaetze\Steuersaetze2018;
+use Demv\Steuersatzrechner\Steuersaetze\Steuersaetze2021;
 use Exception;
-use function Dgame\Ensurance\ensure;
 
 /**
  * Class SteuersatzrechnerFactory
@@ -14,6 +14,7 @@ final class SteuersatzrechnerFactory
 {
     private const SAETZE = [
         2018 => Steuersaetze2018::class,
+        2021 => Steuersaetze2021::class,
     ];
 
     /**
@@ -34,7 +35,6 @@ final class SteuersatzrechnerFactory
      */
     public static function fuerJahr(int $jahr): Steuersatzrechner
     {
-        ensure((string) $jahr)->match('/^[0-9]{4}$/');
         if (!self::istVorhanden($jahr)) {
             throw new Exception(sprintf('Für das Jahr %s liegen keine Steuersätze vor', $jahr));
         }
@@ -51,7 +51,6 @@ final class SteuersatzrechnerFactory
      */
     public static function aktuellsterFuerJahr(int $jahr): Steuersatzrechner
     {
-        ensure((string) $jahr)->match('/^[0-9]{4}$/');
         $input = $jahr;
         $min   = array_keys(self::SAETZE)[0];
         while ($jahr >= $min) {
