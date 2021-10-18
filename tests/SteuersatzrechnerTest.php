@@ -31,7 +31,7 @@ final class SteuersatzrechnerTest extends TestCase
      */
     private $rechner;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->rechner = new Steuersatzrechner(new Steuersaetze(self::TESTSAETZE));
     }
